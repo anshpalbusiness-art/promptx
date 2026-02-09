@@ -5,7 +5,7 @@ read_when:
 title: "PromptX"
 ---
 
-# PromptX 🦞
+# PromptX 🪐
 
 <p align="center">
     <img

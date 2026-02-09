@@ -51,7 +51,7 @@ promptx agents set-identity --workspace ~/.promptx/workspace --from-identity
 Override fields explicitly:
 
 ```bash
-promptx agents set-identity --agent main --name "PromptX" --emoji "🦞" --avatar avatars/promptx.png
+promptx agents set-identity --agent main --name "PromptX" --emoji "🪐" --avatar avatars/promptx.png
 ```
 
 Config sample:
@@ -65,7 +65,7 @@ Config sample:
         identity: {
           name: "PromptX",
           theme: "space lobster",
-          emoji: "🦞",
+          emoji: "🪐",
           avatar: "avatars/promptx.png",
         },
       },

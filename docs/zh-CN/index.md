@@ -12,7 +12,7 @@ x-i18n:
   workflow: 15
 ---
 
-# PromptX 🦞
+# PromptX 🪐
 
 <p align="center">
     <img

@@ -58,7 +58,7 @@ promptx agents set-identity --workspace ~/.promptx/workspace --from-identity
 显式覆盖字段：
 
 ```bash
-promptx agents set-identity --agent main --name "PromptX" --emoji "🦞" --avatar avatars/promptx.png
+promptx agents set-identity --agent main --name "PromptX" --emoji "🪐" --avatar avatars/promptx.png
 ```
 
 配置示例：
@@ -72,7 +72,7 @@ promptx agents set-identity --agent main --name "PromptX" --emoji "🦞" --avata
         identity: {
           name: "PromptX",
           theme: "space lobster",
-          emoji: "🦞",
+          emoji: "🪐",
           avatar: "avatars/promptx.png",
         },
       },

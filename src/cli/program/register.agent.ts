@@ -155,7 +155,7 @@ ${theme.muted("Docs:")} ${formatDocsLink("/cli/agent", "docs.openclaw.ai/cli/age
         `
 ${theme.heading("Examples:")}
 ${formatHelpExamples([
-  ['promptx agents set-identity --agent main --name "PromptX" --emoji "🦞"', "Set name + emoji."],
+  ['promptx agents set-identity --agent main --name "PromptX" --emoji "🪐"', "Set name + emoji."],
   ["promptx agents set-identity --agent main --avatar avatars/promptx.png", "Set avatar path."],
   [
     "promptx agents set-identity --workspace ~/.promptx/workspace --from-identity",

@@ -84,12 +84,12 @@ class CanvasController {
     withWebViewOnMain { wv ->
       if (currentUrl == null) {
         if (BuildConfig.DEBUG) {
-          Log.d("OpenClawCanvas", "load scaffold: $scaffoldAssetUrl")
+          Log.d("PromptXCanvas", "load scaffold: $scaffoldAssetUrl")
         }
         wv.loadUrl(scaffoldAssetUrl)
       } else {
         if (BuildConfig.DEBUG) {
-          Log.d("OpenClawCanvas", "load url: $currentUrl")
+          Log.d("PromptXCanvas", "load url: $currentUrl")
         }
         wv.loadUrl(currentUrl)
       }
@@ -106,7 +106,7 @@ class CanvasController {
       val js = """
         (() => {
           try {
-            const api = globalThis.__openclaw;
+            const api = globalThis.__promptx;
             if (!api) return;
             if (typeof api.setDebugStatusEnabled === 'function') {
               api.setDebugStatusEnabled(${if (enabled) "true" else "false"});

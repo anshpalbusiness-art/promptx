@@ -19,7 +19,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import ai.openclaw.android.ui.RootScreen
-import ai.openclaw.android.ui.OpenClawTheme
+import ai.openclaw.android.ui.PromptXTheme
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
     }
 
     setContent {
-      OpenClawTheme {
+      PromptXTheme {
         Surface(modifier = Modifier) {
           RootScreen(viewModel = viewModel)
         }

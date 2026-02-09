@@ -1,18 +1,18 @@
 {
-  "name": "@openclaw/googlechat",
+  "name": "@promptx/googlechat",
   "version": "2026.2.9",
-  "description": "OpenClaw Google Chat channel plugin",
+  "description": "PromptX Google Chat channel plugin",
   "type": "module",
   "dependencies": {
     "google-auth-library": "^10.5.0"
   },
   "devDependencies": {
-    "openclaw": "workspace:*"
+    "promptx": "workspace:*"
   },
   "peerDependencies": {
-    "openclaw": ">=2026.1.26"
+    "promptx": ">=2026.1.26"
   },
-  "openclaw": {
+  "promptx": {
     "extensions": [
       "./index.ts"
     ],
@@ -31,7 +31,7 @@
       "order": 55
     },
     "install": {
-      "npmSpec": "@openclaw/googlechat",
+      "npmSpec": "@promptx/googlechat",
       "localPath": "extensions/googlechat",
       "defaultChoice": "npm"
     }

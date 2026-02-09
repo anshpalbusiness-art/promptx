@@ -1,15 +1,15 @@
 {
-  "name": "@openclaw/memory-core",
+  "name": "@promptx/memory-core",
   "version": "2026.2.9",
-  "description": "OpenClaw core memory search plugin",
+  "description": "PromptX core memory search plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    "promptx": "workspace:*"
   },
   "peerDependencies": {
-    "openclaw": ">=2026.1.26"
+    "promptx": ">=2026.1.26"
   },
-  "openclaw": {
+  "promptx": {
     "extensions": [
       "./index.ts"
     ]

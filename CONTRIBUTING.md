@@ -1,4 +1,4 @@
-# Contributing to OpenClaw
+# Contributing to PromptX
 
 Welcome to the lobster tank! 🦞
 
@@ -6,7 +6,7 @@ Welcome to the lobster tank! 🦞
 
 - **GitHub:** https://github.com/openclaw/openclaw
 - **Discord:** https://discord.gg/qkhbAGHRBT
-- **X/Twitter:** [@steipete](https://x.com/steipete) / [@openclaw](https://x.com/openclaw)
+- **X/Twitter:** [@steipete](https://x.com/steipete) / [@promptx](https://x.com/openclaw)
 
 ## Maintainers
 
@@ -33,7 +33,7 @@ Welcome to the lobster tank! 🦞
 
 ## Before You PR
 
-- Test locally with your OpenClaw instance
+- Test locally with your PromptX instance
 - Run tests: `pnpm build && pnpm check && pnpm test`
 - Keep PRs focused (one thing per PR)
 - Describe what & why

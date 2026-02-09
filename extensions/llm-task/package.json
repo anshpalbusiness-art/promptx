@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/llm-task",
+  "name": "@promptx/llm-task",
   "version": "2026.2.9",
-  "description": "OpenClaw JSON-only LLM task plugin",
+  "description": "PromptX JSON-only LLM task plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    "promptx": "workspace:*"
   },
-  "openclaw": {
+  "promptx": {
     "extensions": [
       "./index.ts"
     ]

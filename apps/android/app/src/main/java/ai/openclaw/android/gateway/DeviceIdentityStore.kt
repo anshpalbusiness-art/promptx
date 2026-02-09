@@ -21,7 +21,7 @@ data class DeviceIdentity(
 
 class DeviceIdentityStore(context: Context) {
   private val json = Json { ignoreUnknownKeys = true }
-  private val identityFile = File(context.filesDir, "openclaw/identity/device.json")
+  private val identityFile = File(context.filesDir, "promptx/identity/device.json")
 
   @Synchronized
   fun loadOrCreate(): DeviceIdentity {

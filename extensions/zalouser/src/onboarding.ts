@@ -1,16 +1,16 @@
 import type {
   ChannelOnboardingAdapter,
   ChannelOnboardingDmPolicy,
-  OpenClawConfig,
+  PromptXConfig,
   WizardPrompter,
-} from "openclaw/plugin-sdk";
+} from "promptx/plugin-sdk";
 import {
   addWildcardAllowFrom,
   DEFAULT_ACCOUNT_ID,
   normalizeAccountId,
   promptAccountId,
   promptChannelAccessConfig,
-} from "openclaw/plugin-sdk";
+} from "promptx/plugin-sdk";
 import type { ZcaFriend, ZcaGroup } from "./types.js";
 import {
   listZalouserAccountIds,
@@ -23,9 +23,9 @@ import { runZca, runZcaInteractive, checkZcaInstalled, parseJsonOutput } from ".
 const channel = "zalouser" as const;
 
 function setZalouserDmPolicy(
-  cfg: OpenClawConfig,
+  cfg: PromptXConfig,
   dmPolicy: "pairing" | "allowlist" | "open" | "disabled",
-): OpenClawConfig {
+): PromptXConfig {
   const allowFrom =
     dmPolicy === "open" ? addWildcardAllowFrom(cfg.channels?.zalouser?.allowFrom) : undefined;
   return {
@@ -38,7 +38,7 @@ function setZalouserDmPolicy(
         ...(allowFrom ? { allowFrom } : {}),
       },
     },
-  } as OpenClawConfig;
+  } as PromptXConfig;
 }
 
 async function noteZalouserHelp(prompter: WizardPrompter): Promise<void> {
@@ -57,10 +57,10 @@ async function noteZalouserHelp(prompter: WizardPrompter): Promise<void> {
 }
 
 async function promptZalouserAllowFrom(params: {
-  cfg: OpenClawConfig;
+  cfg: PromptXConfig;
   prompter: WizardPrompter;
   accountId: string;
-}): Promise<OpenClawConfig> {
+}): Promise<PromptXConfig> {
   const { cfg, prompter, accountId } = params;
   const resolved = resolveZalouserAccountSync({ cfg, accountId });
   const existingAllowFrom = resolved.config.allowFrom ?? [];
@@ -138,7 +138,7 @@ async function promptZalouserAllowFrom(params: {
             allowFrom: unique,
           },
         },
-      } as OpenClawConfig;
+      } as PromptXConfig;
     }
 
     return {
@@ -159,15 +159,15 @@ async function promptZalouserAllowFrom(params: {
           },
         },
       },
-    } as OpenClawConfig;
+    } as PromptXConfig;
   }
 }
 
 function setZalouserGroupPolicy(
-  cfg: OpenClawConfig,
+  cfg: PromptXConfig,
   accountId: string,
   groupPolicy: "open" | "allowlist" | "disabled",
-): OpenClawConfig {
+): PromptXConfig {
   if (accountId === DEFAULT_ACCOUNT_ID) {
     return {
       ...cfg,
@@ -179,7 +179,7 @@ function setZalouserGroupPolicy(
           groupPolicy,
         },
       },
-    } as OpenClawConfig;
+    } as PromptXConfig;
   }
   return {
     ...cfg,
@@ -198,14 +198,14 @@ function setZalouserGroupPolicy(
         },
       },
     },
-  } as OpenClawConfig;
+  } as PromptXConfig;
 }
 
 function setZalouserGroupAllowlist(
-  cfg: OpenClawConfig,
+  cfg: PromptXConfig,
   accountId: string,
   groupKeys: string[],
-): OpenClawConfig {
+): PromptXConfig {
   const groups = Object.fromEntries(groupKeys.map((key) => [key, { allow: true }]));
   if (accountId === DEFAULT_ACCOUNT_ID) {
     return {
@@ -218,7 +218,7 @@ function setZalouserGroupAllowlist(
           groups,
         },
       },
-    } as OpenClawConfig;
+    } as PromptXConfig;
   }
   return {
     ...cfg,
@@ -237,11 +237,11 @@ function setZalouserGroupAllowlist(
         },
       },
     },
-  } as OpenClawConfig;
+  } as PromptXConfig;
 }
 
 async function resolveZalouserGroups(params: {
-  cfg: OpenClawConfig;
+  cfg: PromptXConfig;
   accountId: string;
   entries: string[];
 }): Promise<Array<{ input: string; resolved: boolean; id?: string }>> {
@@ -417,7 +417,7 @@ export const zalouserOnboardingAdapter: ChannelOnboardingAdapter = {
             profile: account.profile !== "default" ? account.profile : undefined,
           },
         },
-      } as OpenClawConfig;
+      } as PromptXConfig;
     } else {
       next = {
         ...next,
@@ -436,7 +436,7 @@ export const zalouserOnboardingAdapter: ChannelOnboardingAdapter = {
             },
           },
         },
-      } as OpenClawConfig;
+      } as PromptXConfig;
     }
 
     if (forceAllowFrom) {

@@ -1,12 +1,12 @@
 ---
-summary: "CLI reference for `openclaw plugins` (list, install, enable/disable, doctor)"
+summary: "CLI reference for `promptx plugins` (list, install, enable/disable, doctor)"
 read_when:
   - You want to install or manage in-process Gateway plugins
   - You want to debug plugin load failures
 title: "plugins"
 ---
 
-# `openclaw plugins`
+# `promptx plugins`
 
 Manage Gateway plugins/extensions (loaded in-process).
 
@@ -19,26 +19,26 @@ Related:
 ## Commands
 
 ```bash
-openclaw plugins list
-openclaw plugins info <id>
-openclaw plugins enable <id>
-openclaw plugins disable <id>
-openclaw plugins doctor
-openclaw plugins update <id>
-openclaw plugins update --all
+promptx plugins list
+promptx plugins info <id>
+promptx plugins enable <id>
+promptx plugins disable <id>
+promptx plugins doctor
+promptx plugins update <id>
+promptx plugins update --all
 ```
 
-Bundled plugins ship with OpenClaw but start disabled. Use `plugins enable` to
+Bundled plugins ship with PromptX but start disabled. Use `plugins enable` to
 activate them.
 
-All plugins must ship a `openclaw.plugin.json` file with an inline JSON Schema
+All plugins must ship a `promptx.plugin.json` file with an inline JSON Schema
 (`configSchema`, even if empty). Missing/invalid manifests or schemas prevent
 the plugin from loading and fail config validation.
 
 ### Install
 
 ```bash
-openclaw plugins install <path-or-spec>
+promptx plugins install <path-or-spec>
 ```
 
 Security note: treat plugin installs like running code. Prefer pinned versions.
@@ -48,15 +48,15 @@ Supported archives: `.zip`, `.tgz`, `.tar.gz`, `.tar`.
 Use `--link` to avoid copying a local directory (adds to `plugins.load.paths`):
 
 ```bash
-openclaw plugins install -l ./my-plugin
+promptx plugins install -l ./my-plugin
 ```
 
 ### Update
 
 ```bash
-openclaw plugins update <id>
-openclaw plugins update --all
-openclaw plugins update <id> --dry-run
+promptx plugins update <id>
+promptx plugins update --all
+promptx plugins update <id> --dry-run
 ```
 
 Updates only apply to plugins installed from npm (tracked in `plugins.installs`).

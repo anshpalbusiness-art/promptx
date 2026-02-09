@@ -9,19 +9,19 @@ import {
 } from "./workspace.js";
 
 describe("resolveDefaultAgentWorkspaceDir", () => {
-  it("uses OPENCLAW_HOME for default workspace resolution", () => {
+  it("uses PROMPTX_HOME for default workspace resolution", () => {
     const dir = resolveDefaultAgentWorkspaceDir({
-      OPENCLAW_HOME: "/srv/openclaw-home",
+      PROMPTX_HOME: "/srv/promptx-home",
       HOME: "/home/other",
     } as NodeJS.ProcessEnv);
 
-    expect(dir).toBe(path.join(path.resolve("/srv/openclaw-home"), ".openclaw", "workspace"));
+    expect(dir).toBe(path.join(path.resolve("/srv/promptx-home"), ".promptx", "workspace"));
   });
 });
 
 describe("loadWorkspaceBootstrapFiles", () => {
   it("includes MEMORY.md when present", async () => {
-    const tempDir = await makeTempWorkspace("openclaw-workspace-");
+    const tempDir = await makeTempWorkspace("promptx-workspace-");
     await writeWorkspaceFile({ dir: tempDir, name: "MEMORY.md", content: "memory" });
 
     const files = await loadWorkspaceBootstrapFiles(tempDir);
@@ -35,7 +35,7 @@ describe("loadWorkspaceBootstrapFiles", () => {
   });
 
   it("includes memory.md when MEMORY.md is absent", async () => {
-    const tempDir = await makeTempWorkspace("openclaw-workspace-");
+    const tempDir = await makeTempWorkspace("promptx-workspace-");
     await writeWorkspaceFile({ dir: tempDir, name: "memory.md", content: "alt" });
 
     const files = await loadWorkspaceBootstrapFiles(tempDir);
@@ -49,7 +49,7 @@ describe("loadWorkspaceBootstrapFiles", () => {
   });
 
   it("omits memory entries when no memory files exist", async () => {
-    const tempDir = await makeTempWorkspace("openclaw-workspace-");
+    const tempDir = await makeTempWorkspace("promptx-workspace-");
 
     const files = await loadWorkspaceBootstrapFiles(tempDir);
     const memoryEntries = files.filter((file) =>

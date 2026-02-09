@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/minimax-portal-auth",
+  "name": "@promptx/minimax-portal-auth",
   "version": "2026.2.9",
-  "description": "OpenClaw MiniMax Portal OAuth provider plugin",
+  "description": "PromptX MiniMax Portal OAuth provider plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    "promptx": "workspace:*"
   },
-  "openclaw": {
+  "promptx": {
     "extensions": [
       "./index.ts"
     ]

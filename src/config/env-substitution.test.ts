@@ -246,12 +246,12 @@ describe("resolveConfigEnvVars", () => {
       const config = {
         gateway: {
           auth: {
-            token: "${OPENCLAW_GATEWAY_TOKEN}",
+            token: "${PROMPTX_GATEWAY_TOKEN}",
           },
         },
       };
       const result = resolveConfigEnvVars(config, {
-        OPENCLAW_GATEWAY_TOKEN: "secret-token",
+        PROMPTX_GATEWAY_TOKEN: "secret-token",
       });
       expect(result).toEqual({
         gateway: {

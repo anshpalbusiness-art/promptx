@@ -1,6 +1,6 @@
-import OpenClawKit
+import PromptXKit
 import Testing
-@testable import OpenClaw
+@testable import PromptX
 
 @Suite struct IOSGatewayChatTransportTests {
     @Test func requestsFailFastWhenGatewayNotConnected() async {

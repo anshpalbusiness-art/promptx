@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import type { OpenClawConfig } from "openclaw/plugin-sdk";
+import type { PromptXConfig } from "promptx/plugin-sdk";
 import {
   createReplyPrefixOptions,
   logAckFailure,
@@ -7,7 +7,7 @@ import {
   logTypingFailure,
   resolveAckReaction,
   resolveControlCommandGate,
-} from "openclaw/plugin-sdk";
+} from "promptx/plugin-sdk";
 import type { ResolvedBlueBubblesAccount } from "./accounts.js";
 import type { BlueBubblesAccountConfig, BlueBubblesAttachment } from "./types.js";
 import { downloadBlueBubblesAttachment } from "./attachments.js";
@@ -30,7 +30,7 @@ export type BlueBubblesRuntimeEnv = {
 
 export type BlueBubblesMonitorOptions = {
   account: ResolvedBlueBubblesAccount;
-  config: OpenClawConfig;
+  config: PromptXConfig;
   runtime: BlueBubblesRuntimeEnv;
   abortSignal: AbortSignal;
   statusSink?: (patch: { lastInboundAt?: number; lastOutboundAt?: number }) => void;
@@ -270,7 +270,7 @@ function logGroupAllowlistHint(params: {
 
 type WebhookTarget = {
   account: ResolvedBlueBubblesAccount;
-  config: OpenClawConfig;
+  config: PromptXConfig;
   runtime: BlueBubblesRuntimeEnv;
   core: BlueBubblesCoreRuntime;
   path: string;
@@ -372,10 +372,7 @@ type BlueBubblesDebouncer = {
  */
 const targetDebouncers = new Map<WebhookTarget, BlueBubblesDebouncer>();
 
-function resolveBlueBubblesDebounceMs(
-  config: OpenClawConfig,
-  core: BlueBubblesCoreRuntime,
-): number {
+function resolveBlueBubblesDebounceMs(config: PromptXConfig, core: BlueBubblesCoreRuntime): number {
   const inbound = config.messages?.inbound;
   const hasExplicitDebounce =
     typeof inbound?.debounceMs === "number" || typeof inbound?.byChannel?.bluebubbles === "number";
@@ -1100,7 +1097,7 @@ function maskSecret(value: string): string {
 }
 
 function resolveBlueBubblesAckReaction(params: {
-  cfg: OpenClawConfig;
+  cfg: PromptXConfig;
   agentId: string;
   core: BlueBubblesCoreRuntime;
   runtime: BlueBubblesRuntimeEnv;

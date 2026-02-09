@@ -14,28 +14,28 @@ Use this page for scheduler and delivery issues (`cron` + `heartbeat`).
 ## Command ladder
 
 ```bash
-openclaw status
-openclaw gateway status
-openclaw logs --follow
-openclaw doctor
-openclaw channels status --probe
+promptx status
+promptx gateway status
+promptx logs --follow
+promptx doctor
+promptx channels status --probe
 ```
 
 Then run automation checks:
 
 ```bash
-openclaw cron status
-openclaw cron list
-openclaw system heartbeat last
+promptx cron status
+promptx cron list
+promptx system heartbeat last
 ```
 
 ## Cron not firing
 
 ```bash
-openclaw cron status
-openclaw cron list
-openclaw cron runs --id <jobId> --limit 20
-openclaw logs --follow
+promptx cron status
+promptx cron list
+promptx cron runs --id <jobId> --limit 20
+promptx logs --follow
 ```
 
 Good output looks like:
@@ -53,10 +53,10 @@ Common signatures:
 ## Cron fired but no delivery
 
 ```bash
-openclaw cron runs --id <jobId> --limit 20
-openclaw cron list
-openclaw channels status --probe
-openclaw logs --follow
+promptx cron runs --id <jobId> --limit 20
+promptx cron list
+promptx channels status --probe
+promptx logs --follow
 ```
 
 Good output looks like:
@@ -74,10 +74,10 @@ Common signatures:
 ## Heartbeat suppressed or skipped
 
 ```bash
-openclaw system heartbeat last
-openclaw logs --follow
-openclaw config get agents.defaults.heartbeat
-openclaw channels status --probe
+promptx system heartbeat last
+promptx logs --follow
+promptx config get agents.defaults.heartbeat
+promptx channels status --probe
 ```
 
 Good output looks like:
@@ -95,11 +95,11 @@ Common signatures:
 ## Timezone and activeHours gotchas
 
 ```bash
-openclaw config get agents.defaults.heartbeat.activeHours
-openclaw config get agents.defaults.heartbeat.activeHours.timezone
-openclaw config get agents.defaults.userTimezone || echo "agents.defaults.userTimezone not set"
-openclaw cron list
-openclaw logs --follow
+promptx config get agents.defaults.heartbeat.activeHours
+promptx config get agents.defaults.heartbeat.activeHours.timezone
+promptx config get agents.defaults.userTimezone || echo "agents.defaults.userTimezone not set"
+promptx cron list
+promptx logs --follow
 ```
 
 Quick rules:

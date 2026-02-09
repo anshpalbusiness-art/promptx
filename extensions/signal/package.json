@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/signal",
+  "name": "@promptx/signal",
   "version": "2026.2.9",
-  "description": "OpenClaw Signal channel plugin",
+  "description": "PromptX Signal channel plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    "promptx": "workspace:*"
   },
-  "openclaw": {
+  "promptx": {
     "extensions": [
       "./index.ts"
     ]

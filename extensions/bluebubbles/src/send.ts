@@ -1,6 +1,6 @@
-import type { OpenClawConfig } from "openclaw/plugin-sdk";
+import type { PromptXConfig } from "promptx/plugin-sdk";
 import crypto from "node:crypto";
-import { stripMarkdown } from "openclaw/plugin-sdk";
+import { stripMarkdown } from "promptx/plugin-sdk";
 import { resolveBlueBubblesAccount } from "./accounts.js";
 import {
   extractHandleFromChatGuid,
@@ -18,7 +18,7 @@ export type BlueBubblesSendOpts = {
   password?: string;
   accountId?: string;
   timeoutMs?: number;
-  cfg?: OpenClawConfig;
+  cfg?: PromptXConfig;
   /** Message GUID to reply to (reply threading) */
   replyToMessageGuid?: string;
   /** Part index for reply (default: 0) */

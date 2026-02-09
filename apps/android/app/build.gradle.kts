@@ -13,7 +13,7 @@ android {
 
   sourceSets {
     getByName("main") {
-      assets.srcDir(file("../../shared/OpenClawKit/Sources/OpenClawKit/Resources"))
+      assets.srcDir(file("../../shared/PromptXKit/Sources/PromptXKit/Resources"))
     }
   }
 
@@ -65,7 +65,7 @@ androidComponents {
         val versionName = output.versionName.orNull ?: "0"
         val buildType = variant.buildType
 
-        val outputFileName = "openclaw-${versionName}-${buildType}.apk"
+        val outputFileName = "promptx-${versionName}-${buildType}.apk"
         output.outputFileName = outputFileName
       }
   }

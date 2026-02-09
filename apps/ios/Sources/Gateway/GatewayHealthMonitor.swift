@@ -1,5 +1,5 @@
 import Foundation
-import OpenClawKit
+import PromptXKit
 
 @MainActor
 final class GatewayHealthMonitor {

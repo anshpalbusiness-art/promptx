@@ -1,6 +1,6 @@
 import Testing
 import WebKit
-@testable import OpenClaw
+@testable import PromptX
 
 @Suite struct ScreenControllerTests {
     @Test @MainActor func canvasModeConfiguresWebViewForTouch() {

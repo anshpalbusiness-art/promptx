@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/google-antigravity-auth",
+  "name": "@promptx/google-antigravity-auth",
   "version": "2026.2.9",
-  "description": "OpenClaw Google Antigravity OAuth provider plugin",
+  "description": "PromptX Google Antigravity OAuth provider plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    "promptx": "workspace:*"
   },
-  "openclaw": {
+  "promptx": {
     "extensions": [
       "./index.ts"
     ]

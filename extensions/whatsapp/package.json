@@ -1,12 +1,12 @@
 {
-  "name": "@openclaw/whatsapp",
+  "name": "@promptx/whatsapp",
   "version": "2026.2.9",
-  "description": "OpenClaw WhatsApp channel plugin",
+  "description": "PromptX WhatsApp channel plugin",
   "type": "module",
   "devDependencies": {
-    "openclaw": "workspace:*"
+    "promptx": "workspace:*"
   },
-  "openclaw": {
+  "promptx": {
     "extensions": [
       "./index.ts"
     ]

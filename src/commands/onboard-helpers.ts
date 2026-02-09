@@ -17,6 +17,7 @@ import { pickPrimaryTailnetIPv4 } from "../infra/tailnet.js";
 import { isWSL } from "../infra/wsl.js";
 import { runCommandWithTimeout } from "../process/exec.js";
 import { stylePromptTitle } from "../terminal/prompt-style.js";
+import { isRich, theme } from "../terminal/theme.js";
 import {
   CONFIG_DIR,
   resolveUserPath,
@@ -76,19 +77,36 @@ export function normalizeGatewayTokenInput(value: unknown): string {
   return value.trim();
 }
 
+const PROMPTX_ART = [
+  " ██████  ██████   ██████  ███    ███ ██████  ████████ ██   ██",
+  " ██   ██ ██   ██ ██    ██ ████  ████ ██   ██    ██     ██ ██ ",
+  " ██████  ██████  ██    ██ ██ ████ ██ ██████     ██      ███  ",
+  " ██      ██   ██ ██    ██ ██  ██  ██ ██         ██     ██ ██ ",
+  " ██      ██   ██  ██████  ██      ██ ██         ██    ██   ██",
+];
+
 export function printWizardHeader(runtime: RuntimeEnv) {
-  const header = [
-    "╔═══════════════════════════════════════════════════╗",
-    "║  ██▓▓  █▓▓▓  ▓▓▓▓  ▓  ▓ ▓▓▓▓ ▓▓▓▓▓ █   █       ║",
-    "║  █  █  █  ▓  █  █  ██ █ █  █    █    ▀▄ ▄▀       ║",
-    "║  ███▀  ███   █  █  █▀██ ████    █     ▄█▄        ║",
-    "║  █     █ ▀▄  █  █  █ ▀█ █      █    ▄▀ ▀▄       ║",
-    "║  █     █  █  ▀▓▓▀  █  █ █      █   ▀     ▀      ║",
-    "╚═══════════════════════════════════════════════════╝",
-    "                   🪐 PromptX 🪐                     ",
-    " ",
-  ].join("\n");
-  runtime.log(header);
+  const rich = isRich();
+  if (!rich) {
+    const plain = ["", "  Welcome to", ...PROMPTX_ART, ""].join("\n");
+    runtime.log(plain);
+    return;
+  }
+  const welcomeLine = theme.muted("  Welcome to");
+  const artLines = PROMPTX_ART.map((line) => {
+    const chars = Array.from(line);
+    const promptEnd = 49;
+    const bright = chars
+      .slice(0, promptEnd)
+      .map((ch) => (ch === "█" ? theme.accentBright(ch) : theme.muted(ch)))
+      .join("");
+    const dim = chars
+      .slice(promptEnd)
+      .map((ch) => (ch === "█" ? theme.accentDim(ch) : theme.muted(ch)))
+      .join("");
+    return bright + dim;
+  });
+  runtime.log(["", welcomeLine, ...artLines, ""].join("\n"));
 }
 
 export function applyWizardMetadata(

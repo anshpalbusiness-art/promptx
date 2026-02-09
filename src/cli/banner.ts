@@ -12,22 +12,6 @@ type BannerOptions = TaglineOptions & {
 
 let bannerEmitted = false;
 
-const graphemeSegmenter =
-  typeof Intl !== "undefined" && "Segmenter" in Intl
-    ? new Intl.Segmenter(undefined, { granularity: "grapheme" })
-    : null;
-
-function splitGraphemes(value: string): string[] {
-  if (!graphemeSegmenter) {
-    return Array.from(value);
-  }
-  try {
-    return Array.from(graphemeSegmenter.segment(value), (seg) => seg.segment);
-  } catch {
-    return Array.from(value);
-  }
-}
-
 const hasJsonFlag = (argv: string[]) =>
   argv.some((arg) => arg === "--json" || arg.startsWith("--json="));
 
@@ -65,15 +49,11 @@ export function formatCliBannerLine(version: string, options: BannerOptions = {}
 }
 
 const PROMPTX_ASCII = [
-  "╔═══════════════════════════════════════════════════╗",
-  "║  ██▓▓  █▓▓▓  ▓▓▓▓  ▓  ▓ ▓▓▓▓ ▓▓▓▓▓ █   █       ║",
-  "║  █  █  █  ▓  █  █  ██ █ █  █    █    ▀▄ ▄▀       ║",
-  "║  ███▀  ███   █  █  █▀██ ████    █     ▄█▄        ║",
-  "║  █     █ ▀▄  █  █  █ ▀█ █      █    ▄▀ ▀▄       ║",
-  "║  █     █  █  ▀▓▓▀  █  █ █      █   ▀     ▀      ║",
-  "╚═══════════════════════════════════════════════════╝",
-  "                   🪐 PromptX 🪐                     ",
-  " ",
+  " ██████  ██████   ██████  ███    ███ ██████  ████████ ██   ██",
+  " ██   ██ ██   ██ ██    ██ ████  ████ ██   ██    ██     ██ ██ ",
+  " ██████  ██████  ██    ██ ██ ████ ██ ██████     ██      ███  ",
+  " ██      ██   ██ ██    ██ ██  ██  ██ ██         ██     ██ ██ ",
+  " ██      ██   ██  ██████  ██      ██ ██         ██    ██   ██",
 ];
 
 export function formatCliBannerArt(options: BannerOptions = {}): string {
@@ -82,29 +62,18 @@ export function formatCliBannerArt(options: BannerOptions = {}): string {
     return PROMPTX_ASCII.join("\n");
   }
 
-  const colorChar = (ch: string) => {
-    if (ch === "█" || ch === "▓") {
-      return theme.accentBright(ch);
-    }
-    if (ch === "▀" || ch === "▄") {
-      return theme.accent(ch);
-    }
-    if ("╔╗╚╝═║".includes(ch)) {
-      return theme.accentDim(ch);
-    }
-    return theme.muted(ch);
-  };
-
+  const promptEnd = 49;
   const colored = PROMPTX_ASCII.map((line: string) => {
-    if (line.includes("PromptX")) {
-      return (
-        theme.muted("                   ") +
-        theme.accent("🪐") +
-        theme.info(" PromptX ") +
-        theme.accent("🪐")
-      );
-    }
-    return splitGraphemes(line).map(colorChar).join("");
+    const chars = Array.from(line);
+    const bright = chars
+      .slice(0, promptEnd)
+      .map((ch) => (ch === "█" ? theme.accentBright(ch) : theme.muted(ch)))
+      .join("");
+    const dim = chars
+      .slice(promptEnd)
+      .map((ch) => (ch === "█" ? theme.accentDim(ch) : theme.muted(ch)))
+      .join("");
+    return bright + dim;
   });
 
   return colored.join("\n");

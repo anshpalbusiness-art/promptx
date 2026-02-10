@@ -161,7 +161,7 @@ export async function configureGatewayForOnboarding(
   let tailscaleResetOnExit = flow === "quickstart" ? quickstartGateway.tailscaleResetOnExit : false;
   if (tailscaleMode !== "off" && flow !== "quickstart") {
     await prompter.note(
-      ["Docs:", "https://docs.openclaw.ai/gateway/tailscale", "https://docs.openclaw.ai/web"].join(
+      ["Docs:", "https://docs.promptx.ai/gateway/tailscale", "https://docs.promptx.ai/web"].join(
         "\n",
       ),
       "Tailscale",

@@ -72,7 +72,7 @@ async function requireRiskAcknowledgement(params: {
       "promptx security audit --deep",
       "promptx security audit --fix",
       "",
-      "Must read: https://docs.openclaw.ai/gateway/security",
+      "Must read: https://docs.promptx.ai/gateway/security",
     ].join("\n"),
     "Security",
   );
@@ -105,7 +105,7 @@ export async function runOnboardingWizard(
         [
           ...snapshot.issues.map((iss) => `- ${iss.path}: ${iss.message}`),
           "",
-          "Docs: https://docs.openclaw.ai/gateway/configuration",
+          "Docs: https://docs.promptx.ai/gateway/configuration",
         ].join("\n"),
         "Config issues",
       );

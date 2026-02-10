@@ -5,7 +5,7 @@ import type { PromptXConfig } from "../../config/config.js";
 import { log } from "./logger.js";
 
 const OPENROUTER_APP_HEADERS: Record<string, string> = {
-  "HTTP-Referer": "https://openclaw.ai",
+  "HTTP-Referer": "https://promptx.ai",
   "X-Title": "PromptX",
 };
 

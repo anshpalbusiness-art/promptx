@@ -3,7 +3,7 @@ import type { CronDelivery, CronMessageChannel } from "../../cron/types.js";
 import { loadConfig } from "../../config/config.js";
 import { normalizeCronJobCreate, normalizeCronJobPatch } from "../../cron/normalize.js";
 import { parseAgentSessionKey } from "../../sessions/session-key-utils.js";
-import { truncateUtf16Safe } from "../../utils.js";
+import { isRecord, truncateUtf16Safe } from "../../utils.js";
 import { resolveSessionAgentId } from "../agent-scope.js";
 import { optionalStringEnum, stringEnum } from "../schema/typebox.js";
 import { type AnyAgentTool, jsonResult, readStringParam } from "./common.js";
@@ -157,10 +157,6 @@ async function buildReminderContextLines(params: {
   }
 }
 
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === "object" && value !== null && !Array.isArray(value);
-}
-
 function stripThreadSuffixFromSessionKey(sessionKey: string): string {
   const normalized = sessionKey.toLowerCase();
   const idx = normalized.lastIndexOf(":thread:");
@@ -305,7 +301,7 @@ Use jobId as the canonical identifier; id is accepted for compatibility. Use con
           // job properties to the top level alongside `action` instead of nesting
           // them inside `job`. When `params.job` is missing or empty, reconstruct
           // a synthetic job object from any recognised top-level job fields.
-          // See: https://github.com/openclaw/openclaw/issues/11310
+          // See: https://github.com/promptx/promptx/issues/11310
           if (
             !params.job ||
             (typeof params.job === "object" &&

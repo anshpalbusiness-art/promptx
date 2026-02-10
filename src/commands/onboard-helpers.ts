@@ -88,11 +88,11 @@ const PROMPTX_ART = [
 export function printWizardHeader(runtime: RuntimeEnv) {
   const rich = isRich();
   if (!rich) {
-    const plain = ["", "  Welcome to", ...PROMPTX_ART, ""].join("\n");
+    const plain = ["", "  🪐 Welcome to", ...PROMPTX_ART, ""].join("\n");
     runtime.log(plain);
     return;
   }
-  const welcomeLine = theme.muted("  Welcome to");
+  const welcomeLine = theme.muted("  🪐 Welcome to");
   const artLines = PROMPTX_ART.map((line) => {
     const chars = Array.from(line);
     const promptEnd = 49;

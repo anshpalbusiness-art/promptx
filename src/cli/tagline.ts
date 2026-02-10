@@ -1,4 +1,4 @@
-const DEFAULT_TAGLINE = "All your chats, one PromptX.";
+const DEFAULT_TAGLINE = "🪐 All your chats, one PromptX.";
 
 const HOLIDAY_TAGLINES = {
   newYear:
@@ -6,7 +6,7 @@ const HOLIDAY_TAGLINES = {
   lunarNewYear:
     "Lunar New Year: May your builds be lucky, your branches prosperous, and your merge conflicts chased away with fireworks.",
   christmas:
-    "Christmas: Ho ho ho—Santa's little claw-sistant is here to ship joy, roll back chaos, and stash the keys safely.",
+    "Christmas: Ho ho ho—Santa's little co-pilot is here to ship joy, roll back chaos, and stash the keys safely. 🪐",
   eid: "Eid al-Fitr: Celebration mode: queues cleared, tasks completed, and good vibes committed to main with clean history.",
   diwali:
     "Diwali: Let the logs sparkle and the bugs flee—today we light up the terminal and ship with pride.",
@@ -23,10 +23,10 @@ const HOLIDAY_TAGLINES = {
 } as const;
 
 const TAGLINES: string[] = [
-  "Your terminal just grew claws—type something and let the bot pinch the busywork.",
+  "🪐 Your terminal just leveled up—type something and let the bot handle the busywork.",
   "Welcome to the command line: where dreams compile and confidence segfaults.",
   'I run on caffeine, JSON5, and the audacity of "it worked on my machine."',
-  "Gateway online—please keep hands, feet, and appendages inside the shell at all times.",
+  "🪐 Gateway online—please keep hands, feet, and fingers inside the shell at all times.",
   "I speak fluent bash, mild sarcasm, and aggressive tab-completion energy.",
   "One CLI to rule them all, and one more restart because you changed the port.",
   "If it works, it's automation; if it breaks, it's a \"learning opportunity.\"",
@@ -37,10 +37,10 @@ const TAGLINES: string[] = [
   "Type the command with confidence—nature will provide the stack trace if needed.",
   "I don't judge, but your missing API keys are absolutely judging you.",
   "I can grep it, git blame it, and gently roast it—pick your coping mechanism.",
-  "Hot reload for config, cold sweat for deploys.",
+  "🪐 Hot reload for config, cold sweat for deploys.",
   "I'm the assistant your terminal demanded, not the one your sleep schedule requested.",
   "I keep secrets like a vault... unless you print them in debug logs again.",
-  "Automation with claws: minimal fuss, maximal pinch.",
+  "🪐 Automation in orbit: minimal fuss, maximal impact.",
   "I'm basically a Swiss Army knife, but with more opinions and fewer sharp edges.",
   "If you're lost, run doctor; if you're brave, run prod; if you're wise, run tests.",
   "Your task has been queued; your dignity has been deprecated.",
@@ -48,7 +48,7 @@ const TAGLINES: string[] = [
   "I'm not magic—I'm just extremely persistent with retries and coping strategies.",
   'It\'s not "failing," it\'s "discovering new ways to configure the same thing wrong."',
   "Give me a workspace and I'll give you fewer tabs, fewer toggles, and more oxygen.",
-  "I read logs so you can keep pretending you don't have to.",
+  "🪐 I read logs so you can keep pretending you don't have to.",
   "If something's on fire, I can't extinguish it—but I can write a beautiful postmortem.",
   "I'll refactor your busywork like it owes me money.",
   'Say "stop" and I\'ll stop—say "ship" and we\'ll both learn a lesson.',
@@ -59,14 +59,14 @@ const TAGLINES: string[] = [
   "Your config is valid, your assumptions are not.",
   "I don't just autocomplete—I auto-commit (emotionally), then ask you to review (logically).",
   'Less clicking, more shipping, fewer "where did that file go" moments.',
-  "Claws out, commit in—let's ship something mildly responsible.",
-  "I'll butter your workflow like a lobster roll: messy, delicious, effective.",
-  "Shell yeah—I'm here to pinch the toil and leave you the glory.",
-  "If it's repetitive, I'll automate it; if it's hard, I'll bring jokes and a rollback plan.",
+  "🪐 Engines on, commit in—let's ship something mildly responsible.",
+  "🪐 I'll polish your workflow like a space mission: planned, precise, effective.",
+  "🪐 Shell yeah—I'm here to crush the toil and leave you the glory.",
+  "🪐 If it's repetitive, I'll automate it; if it's hard, I'll bring jokes and a rollback plan.",
   "Because texting yourself reminders is so 2024.",
   "Your inbox, your infra, your rules.",
   'Turning "I\'ll reply later" into "my bot replied instantly".',
-  "The only crab in your contacts you actually want to hear from. 🪐",
+  "The only bot in your contacts you actually want to hear from. 🪐",
   "Chat automation for people who peaked at IRC.",
   "Because Siri wasn't answering at 3AM.",
   "IPC, but it's your phone.",

@@ -2,16 +2,15 @@ import { chromium } from "playwright-extra";
 import stealth from "puppeteer-extra-plugin-stealth";
 chromium.use(stealth());
 
+import type { Browser, Page } from "playwright-core";
 import type { AnyAgentTool } from "./common.js";
 import { saveMediaBuffer } from "../../media/store.js";
 import { BrowserToolSchema } from "./browser-tool.schema.js";
 import { jsonResult, readStringParam } from "./common.js";
 
 // Store browser instance for chaining actions
-let browserInstance: Awaited<ReturnType<typeof chromium.launch>> | null = null;
-let pageInstance: Awaited<
-  ReturnType<ReturnType<typeof chromium.launch>["newContext"]>["newPage"]
-> | null = null;
+let browserInstance: Browser | null = null;
+let pageInstance: Page | null = null;
 
 export function createBrowserTool(_opts?: {
   sandboxBridgeUrl?: string;
